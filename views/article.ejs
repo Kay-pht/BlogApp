@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>BLOG</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include('header');%>
+
+    <main>
+      <div class="article">
+        <% if(article.category==='all') {%>
+        <h1><%= article.title %></h1>
+        <p><%= article.content %></p>
+        <% } %> <% if(article.category==='limited') {%>
+        <i>member only</i>
+        <h1><%= article.title %></h1>
+        <% if(isLoggedIn) {%>
+        <p><%= article.content %></p>
+        <% } else { %>
+        <div class="article-login">
+          <p>Please Log in or sign up</p>
+          <p>You can read more if sign up</p>
+          <img src="" />
+          <a class="btn" href="/login">Log in</a>
+        </div>
+
+        <% } %> <% } %>
+      </div>
+    </main>
+    <footer>
+      <a class="btn sub" href="/list">Back to articles</a>
+    </footer>
+  </body>
+</html>

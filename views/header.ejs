@@ -1,0 +1,18 @@
+<header>
+  <div class="header-nav">
+    <a href="/">BLOG</a>
+    <p>Welcome, <%= locals.username %>!</p>
+    <ul>
+      <li><a href="/list">Articles</a></li>
+      <!-- ログイン画面へのリンクを追加してください -->
+      <% if(locals.isLoggedIn) {%>
+      <li><a href="/logout">Log out</a></li>
+      <% } else {%>
+      <li><a href="/login">Log in</a></li>
+      <li><a href="/signup">Sign up</a></li>
+
+      <% } %>
+    </ul>
+  </div>
+  <p>Study Blog</p>
+</header>
